@@ -31,7 +31,7 @@ gem 'griddler'
 gem 'griddler-sendgrid'
 gem 'pusher'
 gem 'kramdown'
-
+gem 'twilio-ruby'
 
 
 group :development, :test do
