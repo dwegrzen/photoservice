@@ -7,7 +7,8 @@ class MessagesController < ApplicationController
       caption: params["Body"],
       from_email: "#{params["From"]}@twillio",
       smsstatus: params["SmsStatus"],
-      mobileurl: params["MediaUrl0"]
+      mobileurl: params["MediaUrl0"],
+      remote_email_image_url: params["MedialUrl0"]
     )
     Pusher.trigger('photos', 'new_photo', PhotoSerializer.new(photo).as_json)
 
@@ -16,7 +17,7 @@ class MessagesController < ApplicationController
     sms = @client.messages.create(
       from: ENV['twilio_number'],
       to: from_number,
-      body: "Your text and photo has been received, thanks you. Your number is #{from_number}."
+      body: "Your text and photo has been received, thank you. Your number is #{from_number}."
     )
   end
 

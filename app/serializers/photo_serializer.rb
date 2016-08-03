@@ -2,11 +2,7 @@ class PhotoSerializer < ActiveModel::Serializer
   attributes :id, :caption, :from_email, :image_url, :custom1, :custom2, :custom3, :custom4, :custom5, :custom6
 
   def image_url
-    if object.smsstatus == "received"
-      object.mobileurl
-    else
       object.email_image_url
-    end
   end
 
   def custom1
