@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
     message_body = params["Body"]
     from_number = params["From"]
     photo = Photo.create!(
-      remote_image_url: params["MedialUrl0"],
+      remote_email_image_url: params["MedialUrl0"],
       caption: params["Body"],
       from_email: "#{params["From"]}@twillio",
       mobileurl: params["MediaUrl0"]
