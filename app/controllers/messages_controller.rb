@@ -4,11 +4,10 @@ class MessagesController < ApplicationController
     message_body = params["Body"]
     from_number = params["From"]
     photo = Photo.create!(
+      remote_image_url: params["MedialUrl0"],
       caption: params["Body"],
       from_email: "#{params["From"]}@twillio",
-      smsstatus: params["SmsStatus"],
-      mobileurl: params["MediaUrl0"],
-      remote_email_image_url: params["MedialUrl0"]
+      mobileurl: params["MediaUrl0"]
     )
     Pusher.trigger('photos', 'new_photo', PhotoSerializer.new(photo).as_json)
 
